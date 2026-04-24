@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bvvf1paeke0x4"]
 
 [ext_resource type="Theme" uid="uid://cplw3is77dpud" path="res://assets/UI/main_menu_theme.tres" id="1_f5okj"]
+[ext_resource type="Script" uid="uid://caorop8pm7uw" path="res://menu/main_menu.gd" id="2_1x3cv"]
 [ext_resource type="Texture2D" uid="uid://bu4rd7djkav0k" path="res://assets/UI/images/main_menu_placeholder.webp" id="2_o5w3e"]
 
 [node name="MainMenu" type="Control" unique_id=1764507766]
@@ -11,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_f5okj")
+script = ExtResource("2_1x3cv")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=648006007]
 layout_mode = 1
@@ -21,7 +23,15 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_o5w3e")
 
-[node name="Label" type="Label" parent="." unique_id=663991163]
+[node name="MainMenuPivot" type="Control" parent="." unique_id=1200173673]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 576.0
+offset_top = 320.0
+offset_right = 576.0
+offset_bottom = 320.0
+
+[node name="Label" type="Label" parent="MainMenuPivot" unique_id=663991163]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -29,14 +39,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -147.0
-offset_top = -229.0
+offset_top = -225.0
 offset_right = 148.0
-offset_bottom = -161.0
+offset_bottom = -157.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "GAME TITLE"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1628292907]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuPivot" unique_id=1628292907]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -44,23 +54,126 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -109.0
-offset_top = -114.0
+offset_top = -110.0
 offset_right = 109.0
-offset_bottom = 114.0
+offset_bottom = 118.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=1083209611]
+[node name="ButtonPlay" type="Button" parent="MainMenuPivot/VBoxContainer" unique_id=1083209611]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Play"
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=859480276]
+[node name="ButtonOptions" type="Button" parent="MainMenuPivot/VBoxContainer" unique_id=859480276]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Options"
 
-[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1881066812]
+[node name="ButtonQuit" type="Button" parent="MainMenuPivot/VBoxContainer" unique_id=1881066812]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Quit"
+
+[node name="OptionsMenuPivot" type="Control" parent="." unique_id=14819509]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1103.0
+offset_top = -19.0
+offset_right = 1143.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionsMenuBackground" type="ColorRect" parent="OptionsMenuPivot" unique_id=865916725]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.120659724
+anchor_top = 0.12345679
+anchor_right = 0.8793403
+anchor_bottom = 0.8765432
+offset_left = -421.8264
+offset_top = -228.93828
+offset_right = 433.8264
+offset_bottom = 197.93826
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.88235295)
+
+[node name="SensitivityLabel" type="Label" parent="OptionsMenuPivot/OptionsMenuBackground" unique_id=1927897146]
+layout_mode = 1
+offset_left = 58.0
+offset_top = 51.0
+offset_right = 504.0
+offset_bottom = 119.0
+text = "Mouse Sensitivity"
+
+[node name="SensitivitySlider" type="HSlider" parent="OptionsMenuPivot/OptionsMenuBackground/SensitivityLabel" unique_id=1466980901]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 464.0
+offset_top = 14.0
+offset_right = 789.0
+offset_bottom = 43.175
+scale = Vector2(1, 1.25)
+
+[node name="FullScreenLabel" type="Label" parent="OptionsMenuPivot/OptionsMenuBackground" unique_id=1357943352]
+layout_mode = 1
+offset_left = 58.0
+offset_top = 157.0
+offset_right = 354.0
+offset_bottom = 225.0
+text = "Full Screen"
+
+[node name="CheckButton" type="CheckButton" parent="OptionsMenuPivot/OptionsMenuBackground/FullScreenLabel" unique_id=87927764]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 464.0
+offset_top = 14.0
+offset_right = 502.0
+offset_bottom = 60.0
+icon_alignment = 1
+
+[node name="VolumeLabel" type="Label" parent="OptionsMenuPivot/OptionsMenuBackground" unique_id=1217514041]
+layout_mode = 1
+offset_left = 58.0
+offset_top = 263.0
+offset_right = 244.0
+offset_bottom = 331.0
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="OptionsMenuPivot/OptionsMenuBackground/VolumeLabel" unique_id=329504378]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 464.0
+offset_top = 12.0
+offset_right = 789.0
+offset_bottom = 41.175
+scale = Vector2(1, 1.25)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsMenuPivot/OptionsMenuBackground" unique_id=592814893]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 358.0
+offset_right = 580.0
+offset_bottom = 433.0
+
+[node name="ApplySettingsButton" type="Button" parent="OptionsMenuPivot/OptionsMenuBackground/HBoxContainer" unique_id=1943182810]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Apply"
+
+[node name="ExitSettingsButton" type="Button" parent="OptionsMenuPivot/OptionsMenuBackground/HBoxContainer" unique_id=1293684834]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Back"

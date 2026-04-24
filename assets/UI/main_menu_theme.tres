@@ -15,6 +15,14 @@ bg_color = Color(0.21365282, 0.10817497, 0.0759022, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qj058"]
 bg_color = Color(0.052352726, 0.01679377, 0.009381679, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sudpt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bljt5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qj058"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ymu4r"]
+
 [resource]
 Button/font_sizes/font_size = 36
 Button/fonts/font = ExtResource("1_qj058")
@@ -22,6 +30,11 @@ Button/styles/focus = SubResource("StyleBoxFlat_ymu4r")
 Button/styles/hover = SubResource("StyleBoxFlat_sudpt")
 Button/styles/normal = SubResource("StyleBoxFlat_bljt5")
 Button/styles/pressed = SubResource("StyleBoxFlat_qj058")
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_sudpt")
+CheckButton/styles/hover = SubResource("StyleBoxEmpty_bljt5")
+CheckButton/styles/normal = SubResource("StyleBoxEmpty_qj058")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_ymu4r")
+HBoxContainer/constants/separation = 10
 Label/font_sizes/font_size = 60
 Label/fonts/font = ExtResource("1_eu8ga")
 VBoxContainer/constants/separation = 20
