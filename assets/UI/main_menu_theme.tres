@@ -1,0 +1,27 @@
+[gd_resource type="Theme" format=3 uid="uid://cplw3is77dpud"]
+
+[ext_resource type="FontFile" uid="uid://bsivb784geusp" path="res://assets/UI/fonts/Gorgo.ttf" id="1_eu8ga"]
+[ext_resource type="FontFile" uid="uid://wc7lmkw5i5rg" path="res://assets/UI/fonts/Razor Keen.otf" id="1_qj058"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymu4r"]
+bg_color = Color(0.21365282, 0.10817497, 0.0759022, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sudpt"]
+bg_color = Color(0.21365282, 0.10817497, 0.0759022, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bljt5"]
+bg_color = Color(0.21365282, 0.10817497, 0.0759022, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qj058"]
+bg_color = Color(0.052352726, 0.01679377, 0.009381679, 1)
+
+[resource]
+Button/font_sizes/font_size = 36
+Button/fonts/font = ExtResource("1_qj058")
+Button/styles/focus = SubResource("StyleBoxFlat_ymu4r")
+Button/styles/hover = SubResource("StyleBoxFlat_sudpt")
+Button/styles/normal = SubResource("StyleBoxFlat_bljt5")
+Button/styles/pressed = SubResource("StyleBoxFlat_qj058")
+Label/font_sizes/font_size = 60
+Label/fonts/font = ExtResource("1_eu8ga")
+VBoxContainer/constants/separation = 20
