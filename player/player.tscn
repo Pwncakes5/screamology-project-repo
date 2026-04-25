@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6ngnaaugpmtf" path="res://player/player_controller.gd" id="1_oul6g"]
 [ext_resource type="PackedScene" uid="uid://0hjioifqgatd" path="res://interactibles/interact_detection.tscn" id="2_rkbax"]
+[ext_resource type="PackedScene" uid="uid://btk66p4xb6j01" path="res://assets/environment/flashlight.glb" id="3_g1dw6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 radius = 0.3
@@ -28,6 +29,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
 unique_name_in_owner = true
 
 [node name="InteractDetection" parent="CameraPivot/Camera" unique_id=722238907 instance=ExtResource("2_rkbax")]
+
+[node name="flashlight" parent="CameraPivot/Camera" unique_id=158668716 instance=ExtResource("3_g1dw6")]
+transform = Transform3D(0.99346274, -0.114156924, -4.9899573e-09, 0.0146060875, 0.12711097, 0.99178094, -0.11321866, -0.9852974, 0.1279474, 0.31189108, -0.24143326, -0.19554275)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CameraPivot/Camera/flashlight" unique_id=362384493]
+transform = Transform3D(0.9869683, -0.11341065, -0.11415696, -0.1134107, 0.013031721, -0.99346286, 0.11415691, 0.99346286, -8.940697e-08, 0.02599606, 0.2262333, 0.008096695)
+light_color = Color(0.9764706, 0.972549, 0.36862746, 1)
+light_energy = 4.742
+spot_range = 4.1295257
+spot_angle = 21.819405
 
 [node name="CrouchCeilingCast" type="ShapeCast3D" parent="." unique_id=271533372]
 unique_name_in_owner = true
