@@ -81,5 +81,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3348103, 0.46453762, -11.74
 [node name="test_key" parent="." unique_id=254245436 instance=ExtResource("3_7p8k5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5955215, 0, -11.422611)
 
-[node name="TESTDoor_locked" parent="." unique_id=919733671 instance=ExtResource("4_kqan6")]
+[node name="TESTDoor_locked" parent="." unique_id=919733671 node_paths=PackedStringArray("door_key") instance=ExtResource("4_kqan6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.585445, 0.5, -11.095875)
+door_key = NodePath("../test_key")

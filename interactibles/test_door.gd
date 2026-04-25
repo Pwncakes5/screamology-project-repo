@@ -1,4 +1,4 @@
-class_name TESTDoor extends Interactible3D
+class_name TESTDoor extends Interactable3D
 
 
 @onready var _static_body_collision_shape: CollisionShape3D = %StaticBodyCollisionShape3D

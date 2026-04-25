@@ -1,20 +1,37 @@
 class_name TESTDoorLocked
-extends Interactible3D
+extends Interactable3D
 
 @onready var _static_body_collision_shape: CollisionShape3D = %StaticBodyCollisionShape3D
 @onready var _door_mesh: MeshInstance3D = $MeshInstance3D
+
+# This property is an Interactable3D object that can be assigned to unlock the door
+@export var door_key : Interactable3D = null
+# This property checks if the door can be opened
+@export var is_locked := true
 
 var _tween_door : Tween = null
 
 var is_active := false:
 	set = set_is_active
 
+# If a key has been assigned to the door_key property we connect to the key's interacted_with signal
+# to unlock the door when the door is added to the scene tree
+func _ready() -> void:
+	if door_key != null:
+		door_key.interacted_with.connect(
+			func() -> void:
+				is_locked = false
+				prompt = "Open Door"
+		)
+
+
 func interact() -> void:
-	if KeyRing.key_ring["Green"] == false:
-		prompt = "You need the Green key to open"
-	else:
+	super()
+	if not is_locked:
 		set_is_active(not is_active)
-		prompt = "Open Door"
+
+
+
 func set_is_active(new_value: bool) -> void:
 	is_active = new_value
 	_static_body_collision_shape.disabled = is_active

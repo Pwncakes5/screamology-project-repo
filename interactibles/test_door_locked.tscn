@@ -18,7 +18,7 @@ size = Vector3(3.2480469, 2.142334, 0.48828125)
 [node name="TESTDoor_locked" type="Area3D" unique_id=552822026]
 collision_layer = 5
 script = ExtResource("1_hwnuk")
-prompt = "Open Door"
+prompt = "You need to find the key"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=10699860]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

@@ -1,4 +1,4 @@
-extends Interactible3D
+extends Interactable3D
 class_name Test_Key
 
 # I can't figure out signals :(
@@ -9,8 +9,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func interact():
-	KeyRing.key_ring["Green"] = true
-	print(KeyRing.key_ring)
+	super()
 	queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
