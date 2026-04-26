@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://w71hw82urkwy" path="res://interactibles/test_key.tscn" id="3_5aomj"]
 [ext_resource type="PackedScene" uid="uid://4dbt38yy64ny" path="res://interactibles/test_door_locked.tscn" id="4_n2d81"]
 [ext_resource type="PackedScene" uid="uid://3khgjamjldbp" path="res://common/jump_scare_test.tscn" id="5_avwfh"]
+[ext_resource type="PackedScene" uid="uid://c3dmpo4m4rfrq" path="res://props/test_light.tscn" id="6_5aomj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y1qy8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -106,3 +107,6 @@ door_key = NodePath("../test_key")
 
 [node name="JumpScareTest" parent="." unique_id=1541913166 instance=ExtResource("5_avwfh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.763985, 0, 8.400452)
+
+[node name="TestLight" parent="." unique_id=1898915381 instance=ExtResource("6_5aomj")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -9.259735, 2.9643798, 0.21989715)
