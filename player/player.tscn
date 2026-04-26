@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://c6ngnaaugpmtf" path="res://player/player_controller.gd" id="1_oul6g"]
 [ext_resource type="PackedScene" uid="uid://0hjioifqgatd" path="res://interactibles/interact_detection.tscn" id="2_rkbax"]
 [ext_resource type="PackedScene" uid="uid://btk66p4xb6j01" path="res://assets/environment/flashlight.glb" id="3_g1dw6"]
+[ext_resource type="Script" uid="uid://ci7sx2i5y5t56" path="res://player/flashlight_controller.gd" id="4_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://d2ky4klnlqy14" path="res://common/Doge.webp" id="4_yw30f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 radius = 0.3
@@ -32,13 +34,18 @@ unique_name_in_owner = true
 target_position = Vector3(0, 0, -1.5)
 
 [node name="flashlight" parent="CameraPivot/Camera" unique_id=158668716 instance=ExtResource("3_g1dw6")]
-transform = Transform3D(0.99346274, -0.114156924, -4.9899573e-09, 0.0146060875, 0.12711097, 0.99178094, -0.11321866, -0.9852974, 0.1279474, 0.31189108, -0.24143326, -0.19554275)
+transform = Transform3D(0.49673137, -0.05707846, -2.957587e-09, 0.0073030223, 0.06355531, 0.4958905, -0.05660933, -0.49264872, 0.063973516, 0.15823364, -0.09289968, -0.05842927)
+script = ExtResource("4_qjkh3")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CameraPivot/Camera/flashlight" unique_id=362384493]
-transform = Transform3D(0.9869683, -0.11341065, -0.11415696, -0.1134107, 0.013031721, -0.99346286, 0.11415691, 0.99346286, -8.940697e-08, 0.02599606, 0.2262333, 0.008096695)
+unique_name_in_owner = true
+transform = Transform3D(0.9869683, -0.113410644, -0.11415697, -0.11341071, 0.013031706, -0.99346286, 0.114156894, 0.99346286, -1.0430813e-07, 0.03050536, 0.26547605, 0.007398486)
 light_color = Color(0.9764706, 0.972549, 0.36862746, 1)
-light_energy = 4.742
-spot_range = 4.1295257
+light_energy = 16.0
+light_projector = ExtResource("4_yw30f")
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 6.196021
 spot_angle = 21.819405
 
 [node name="CrouchCeilingCast" type="ShapeCast3D" parent="." unique_id=271533372]
