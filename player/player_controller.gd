@@ -30,7 +30,7 @@ class_name PlayerController extends CharacterBody3D
 var is_crouching : bool = false:
 	set = set_is_crouching
 
-
+#region Virtual Functions
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -113,8 +113,9 @@ func _physics_process(delta: float) -> void:
 	## If the player just landed, play the impact animation
 	if just_landed:
 		play_landing_animation(fall_speed)
+#endregion
 
-
+#region Camera Controls
 func _rotate_camera_by(look_offset_2d: Vector2) -> void:
 	_camera.rotation.y -= look_offset_2d.x
 	_camera.rotation.x -= look_offset_2d.y
@@ -124,8 +125,9 @@ func _rotate_camera_by(look_offset_2d: Vector2) -> void:
 	_camera.rotation.x = clampf(_camera.rotation.x, -1.0 * MAX_VERTICAL_ANGLE, MAX_VERTICAL_ANGLE)
 	
 	_camera.orthonormalize()
+#endregion
 
-
+#region Animation Functions
 func play_landing_animation(fall_speed: float) -> void:
 	var impact_intensity := fall_speed / max_fall_speed
 	
@@ -133,6 +135,13 @@ func play_landing_animation(fall_speed: float) -> void:
 	impact_tween.tween_property(_camera_pivot, "position:y", _camera_pivot.position.y - 0.2 * impact_intensity, 0.06)
 	impact_tween.tween_property(_camera_pivot, "position:y", _pivot_start_position, 0.1)
 
+func turn_camera_towards(target_global_position: Vector3) -> void:
+	pass
+
+
+func walk_towards(target_global_position: Vector3) -> void:
+	pass
+#endregion
 
 func set_is_crouching(new_value: bool) -> void:
 	if is_crouching == new_value:

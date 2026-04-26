@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://cplw3is77dpud" path="res://assets/UI/main_menu_theme.tres" id="1_f5okj"]
 [ext_resource type="Script" uid="uid://caorop8pm7uw" path="res://menu/main_menu.gd" id="2_1x3cv"]
 [ext_resource type="Texture2D" uid="uid://bu4rd7djkav0k" path="res://assets/UI/images/main_menu_placeholder.webp" id="2_o5w3e"]
+[ext_resource type="FontFile" uid="uid://wc7lmkw5i5rg" path="res://assets/UI/fonts/Razor Keen.otf" id="4_1x3cv"]
 
 [node name="MainMenu" type="Control" unique_id=1764507766]
 layout_mode = 3
@@ -114,6 +115,7 @@ offset_left = 58.0
 offset_top = 51.0
 offset_right = 504.0
 offset_bottom = 119.0
+theme_override_fonts/font = ExtResource("4_1x3cv")
 text = "Mouse Sensitivity"
 
 [node name="SensitivitySlider" type="HSlider" parent="OptionsMenuPivot/OptionsMenuBackground/SensitivityLabel" unique_id=1466980901]
@@ -131,6 +133,7 @@ offset_left = 58.0
 offset_top = 157.0
 offset_right = 354.0
 offset_bottom = 225.0
+theme_override_fonts/font = ExtResource("4_1x3cv")
 text = "Full Screen"
 
 [node name="CheckButton" type="CheckButton" parent="OptionsMenuPivot/OptionsMenuBackground/FullScreenLabel" unique_id=87927764]
@@ -148,6 +151,7 @@ offset_left = 58.0
 offset_top = 263.0
 offset_right = 244.0
 offset_bottom = 331.0
+theme_override_fonts/font = ExtResource("4_1x3cv")
 text = "Volume"
 
 [node name="VolumeSlider" type="HSlider" parent="OptionsMenuPivot/OptionsMenuBackground/VolumeLabel" unique_id=329504378]
