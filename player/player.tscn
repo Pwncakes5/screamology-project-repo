@@ -29,6 +29,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
 unique_name_in_owner = true
 
 [node name="InteractDetection" parent="CameraPivot/Camera" unique_id=722238907 instance=ExtResource("2_rkbax")]
+target_position = Vector3(0, 0, -1.5)
 
 [node name="flashlight" parent="CameraPivot/Camera" unique_id=158668716 instance=ExtResource("3_g1dw6")]
 transform = Transform3D(0.99346274, -0.114156924, -4.9899573e-09, 0.0146060875, 0.12711097, 0.99178094, -0.11321866, -0.9852974, 0.1279474, 0.31189108, -0.24143326, -0.19554275)

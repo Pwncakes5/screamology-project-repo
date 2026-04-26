@@ -1,7 +1,9 @@
 class_name PlayerController extends CharacterBody3D
 
-## Signal is emitted from the walk_towards function
+## Signal that gets emitted from the walk_towards function
 signal walked_to
+## Siignal that gets emitted from the turn_camera_towards function
+signal looked_at
 
 @onready var _camera_pivot: Node3D = %CameraPivot
 @onready var _pivot_start_position : float = _camera_pivot.position.y
@@ -130,6 +132,7 @@ func _rotate_camera_by(look_offset_2d: Vector2) -> void:
 #endregion
 
 #region Animation Functions
+## Function animates the Camera's Pivot node up and down based on how fast the Player is falling
 func play_landing_animation(fall_speed: float) -> void:
 	var impact_intensity := fall_speed / max_fall_speed
 	
@@ -137,15 +140,22 @@ func play_landing_animation(fall_speed: float) -> void:
 	impact_tween.tween_property(_camera_pivot, "position:y", _camera_pivot.position.y - 0.2 * impact_intensity, 0.06)
 	impact_tween.tween_property(_camera_pivot, "position:y", _pivot_start_position, 0.1)
 
-func turn_camera_towards(target_global_position: Vector3) -> void:
-	pass
+## Function rotates the Player's Camera and pivot to a target position over a duration
+func turn_camera_towards(target_global_position: Vector3, turn_duration: float) -> void:
+	var angle_to_target : float = global_position.angle_to(target_global_position)
+	
+	var tween := create_tween().set_parallel()
+	
+	tween.tween_property(_camera, "rotation:x", angle_to_target, turn_duration)
+	tween.tween_property(_camera, "rotation:y", angle_to_target, turn_duration)
+	
+	tween.finished.connect(
+		func() -> void:
+			looked_at.emit()
+	)
 
 ## Function animates the Player to a target position of type Vector3
-func walk_towards(target_global_position: Vector3) -> void:
-	var direction := global_position.direction_to(target_global_position)
-	var distance := global_position.distance_to(target_global_position)
-	var duration := distance / (max_speed_jog * 0.2)
-	
+func walk_towards(target_global_position: Vector3, duration: float) -> void:
 	var tween := create_tween()
 	tween.tween_property(self, "global_position", target_global_position, duration)
 	tween.finished.connect(
@@ -154,6 +164,7 @@ func walk_towards(target_global_position: Vector3) -> void:
 	)
 #endregion
 
+#region Setter Functions
 func set_is_crouching(new_value: bool) -> void:
 	if is_crouching == new_value:
 		return
@@ -181,3 +192,4 @@ func set_is_crouching(new_value: bool) -> void:
 		
 	var pivot_tween := create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	pivot_tween.tween_property(_camera_pivot, "position:y", target_pivot_height, 0.25)
+#endregion
