@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://3khgjamjldbp"]
+
+[ext_resource type="Script" uid="uid://di0oiqivykek5" path="res://common/jump_scare_test.gd" id="1_olavw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2f5ml"]
+size = Vector3(3, 3, 3)
+
+[node name="JumpScareTest" type="Area3D" unique_id=1541913166]
+script = ExtResource("1_olavw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1942673746]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8608861, 0)
+shape = SubResource("BoxShape3D_2f5ml")
+debug_color = Color(0, 0, 1, 1)
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1134798433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.008883, 2.604918, 2.8885598)

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://c3dmpo4m4rfrq"]
+
+[ext_resource type="AudioStream" uid="uid://coq0rbquvc4vu" path="res://assets/Audio/Ambience/lamp_ambience.ogg" id="1_agjal"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ib04k"]
+radius = 0.05
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_agjal"]
+albedo_color = Color(1, 1, 0, 1)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_agjal"]
+material = SubResource("StandardMaterial3D_agjal")
+radius = 0.05
+height = 0.2
+
+[node name="TestLight" type="StaticBody3D" unique_id=1898915381]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1407720081]
+shape = SubResource("CapsuleShape3D_ib04k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1702999291]
+mesh = SubResource("CapsuleMesh_agjal")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1677105194]
+stream = ExtResource("1_agjal")
+autoplay = true
+max_distance = 3.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=820837444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0835517, 0, 0)
+light_color = Color(1, 1, 0.105882354, 1)

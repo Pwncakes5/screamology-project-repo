@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu4rd7djkav0k"
-path="res://.godot/imported/main_menu_placeholder.webp-9cf06d89cc1b1c4e11445cc46353b614.ctex"
+uid="uid://d2ky4klnlqy14"
+path="res://.godot/imported/Doge.webp-b010b633d1e272833fb744e3414a9852.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/images/main_menu_placeholder.webp"
-dest_files=["res://.godot/imported/main_menu_placeholder.webp-9cf06d89cc1b1c4e11445cc46353b614.ctex"]
+source_file="res://common/Doge.webp"
+dest_files=["res://.godot/imported/Doge.webp-b010b633d1e272833fb744e3414a9852.ctex"]
 
 [params]
 
