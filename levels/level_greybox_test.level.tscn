@@ -3,6 +3,22 @@
 [ext_resource type="PackedScene" uid="uid://kuvpnycyrn05" path="res://player/player.tscn" id="1_r4efh"]
 [ext_resource type="PackedScene" uid="uid://bqmkxjilna44r" path="res://assets/environment/sewer_pieces.tscn" id="2_julpx"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_julpx"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ab6x4"]
+sky_material = SubResource("ProceduralSkyMaterial_julpx")
+
+[sub_resource type="Environment" id="Environment_qnufv"]
+background_mode = 2
+sky = SubResource("Sky_ab6x4")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.09602315, 0.10853378, 0.12800086, 1)
+fog_density = 0.04
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iynvf"]
 resource_name = "straight_4"
 cull_mode = 2
@@ -229,6 +245,9 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0
 
 [node name="LevelGreyboxTest" type="Node3D" unique_id=943103115]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=192833977]
+environment = SubResource("Environment_qnufv")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=834843879]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
@@ -239,10 +258,15 @@ use_collision = true
 size = Vector3(400, 0.2, 400)
 
 [node name="Player" parent="." unique_id=1496450164 instance=ExtResource("1_r4efh")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -101.67752, 0.59036887, 32.57467)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -64.445656, 0.59036887, -75.70099)
+max_speed_sprint = 6.0
+deceleration = 14.0
 
 [node name="sewer_placeholder" parent="." unique_id=1951818981 instance=ExtResource("2_julpx")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -26.671265, 0, -60.6374)
+
+[node name="copy_cube11" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="0" unique_id=1168307083]
+visible = false
 
 [node name="tunnel_long" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="1" unique_id=1158758512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11447.326, 0, -71.5641)
@@ -324,7 +348,67 @@ mesh = SubResource("ArrayMesh_vh3h5")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sewer_placeholder/stelsel/tunnel_long8/StaticBody3D" unique_id=970100183]
 shape = SubResource("ConcavePolygonShape3D_gydd3")
 
-[node name="tunnel_long9" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="9" unique_id=1557137418]
+[node name="tunnel_long10" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="9" unique_id=1628914171]
+transform = Transform3D(1, 7.1054274e-15, 0, -7.1054274e-15, 1, 0, 0, 0, 1, 13182.827, -2850.7483, -71.5641)
+cast_shadow = 2
+mesh = SubResource("ArrayMesh_vh3h5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sewer_placeholder/stelsel/tunnel_long10" unique_id=1053227797]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sewer_placeholder/stelsel/tunnel_long10/StaticBody3D" unique_id=418571138]
+shape = SubResource("ConcavePolygonShape3D_awetc")
+
+[node name="tunnel_long14" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="10" unique_id=774019655]
+transform = Transform3D(1, 7.1054274e-15, 0, -7.1054274e-15, 1, 0, 0, 0, 1, 13182.827, -1695.229, -71.5641)
+cast_shadow = 2
+mesh = SubResource("ArrayMesh_vh3h5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sewer_placeholder/stelsel/tunnel_long14" unique_id=1169426391]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sewer_placeholder/stelsel/tunnel_long14/StaticBody3D" unique_id=816930712]
+shape = SubResource("ConcavePolygonShape3D_awetc")
+
+[node name="tunnel_long11" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="11" unique_id=439049385]
+transform = Transform3D(1, 7.1054274e-15, 0, -7.1054274e-15, 1, 0, 0, 0, 1, 13182.827, -4000.7476, -71.5641)
+cast_shadow = 2
+mesh = SubResource("ArrayMesh_vh3h5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sewer_placeholder/stelsel/tunnel_long11" unique_id=1673691789]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sewer_placeholder/stelsel/tunnel_long11/StaticBody3D" unique_id=1004696438]
+shape = SubResource("ConcavePolygonShape3D_gydd3")
+
+[node name="tunnel_long12" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="12" unique_id=326136930]
+transform = Transform3D(-4.3711402e-08, 1, 0, -1, -4.3711402e-08, 0, 0, 0, 1, 11191.017, -9851.686, -71.564)
+cast_shadow = 2
+mesh = SubResource("ArrayMesh_vh3h5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sewer_placeholder/stelsel/tunnel_long12" unique_id=909181098]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sewer_placeholder/stelsel/tunnel_long12/StaticBody3D" unique_id=1349740544]
+shape = SubResource("ConcavePolygonShape3D_gydd3")
+
+[node name="tunnel_long15" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="13" unique_id=1161194430]
+transform = Transform3D(-4.3711402e-08, 1, 0, -1, -4.3711402e-08, 0, 0, 0, 1, 6565.4473, -648.12695, -71.564)
+cast_shadow = 2
+mesh = SubResource("ArrayMesh_vh3h5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sewer_placeholder/stelsel/tunnel_long15" unique_id=1003145890]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sewer_placeholder/stelsel/tunnel_long15/StaticBody3D" unique_id=269191078]
+shape = SubResource("ConcavePolygonShape3D_gydd3")
+
+[node name="tunnel_long13" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="14" unique_id=1784457779]
+transform = Transform3D(-4.3711402e-08, 1, 0, -1, -4.3711402e-08, 0, 0, 0, 1, 12298.6, -9851.686, -71.564)
+cast_shadow = 2
+mesh = SubResource("ArrayMesh_vh3h5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sewer_placeholder/stelsel/tunnel_long13" unique_id=1023339073]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sewer_placeholder/stelsel/tunnel_long13/StaticBody3D" unique_id=1257554040]
+shape = SubResource("ConcavePolygonShape3D_gydd3")
+
+[node name="tunnel_long9" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="15" unique_id=1557137418]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 5572.325, -3725, -71.5641)
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_vh3h5")
@@ -334,7 +418,10 @@ mesh = SubResource("ArrayMesh_vh3h5")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sewer_placeholder/stelsel/tunnel_long9/StaticBody3D" unique_id=1724301350]
 shape = SubResource("ConcavePolygonShape3D_gydd3")
 
-[node name="tunnel_corner" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="12" unique_id=968280732]
+[node name="copy_cube13" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="17" unique_id=1739777782]
+visible = false
+
+[node name="tunnel_corner" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="18" unique_id=968280732]
 transform = Transform3D(-1, -8.7422784e-08, 0, 8.7422784e-08, -1, 0, 0, 0, 1, 3573.479, -6777.592, -71.33627)
 mesh = SubResource("ArrayMesh_j3uwe")
 
@@ -343,13 +430,79 @@ mesh = SubResource("ArrayMesh_j3uwe")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sewer_placeholder/stelsel/tunnel_corner/StaticBody3D" unique_id=1046713995]
 shape = SubResource("ConcavePolygonShape3D_l8o0g")
 
-[node name="tunnel_cross" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="14" unique_id=1217924533]
+[node name="tunnel_corner2" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="19" unique_id=219733670]
+transform = Transform3D(-1, -8.7422784e-08, 0, 8.7422784e-08, -1, 0, 0, 0, 1, 5317.848, -5027.5894, -71.33627)
+mesh = SubResource("ArrayMesh_j3uwe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sewer_placeholder/stelsel/tunnel_corner2" unique_id=616436722]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sewer_placeholder/stelsel/tunnel_corner2/StaticBody3D" unique_id=1455630725]
+shape = SubResource("ConcavePolygonShape3D_l8o0g")
+
+[node name="tunnel_corner3" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="20" unique_id=99065220]
+transform = Transform3D(-1, -8.7422784e-08, 0, 8.7422784e-08, -1, 0, 0, 0, 1, 9353.0205, -3280.9063, -71.564)
+mesh = SubResource("ArrayMesh_j3uwe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sewer_placeholder/stelsel/tunnel_corner3" unique_id=661720180]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sewer_placeholder/stelsel/tunnel_corner3/StaticBody3D" unique_id=745038808]
+shape = SubResource("ConcavePolygonShape3D_l8o0g")
+
+[node name="tunnel_corner5" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="21" unique_id=1626301944]
+transform = Transform3D(-4.3711402e-08, 1, 0, -1, -4.3711402e-08, 0, 0, 0, 1, 4878.0176, -649.44434, -71.564)
+mesh = SubResource("ArrayMesh_j3uwe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sewer_placeholder/stelsel/tunnel_corner5" unique_id=479041703]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sewer_placeholder/stelsel/tunnel_corner5/StaticBody3D" unique_id=1954229407]
+shape = SubResource("ConcavePolygonShape3D_l8o0g")
+
+[node name="tunnel_corner6" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="22" unique_id=402393547]
+transform = Transform3D(1, 7.1054274e-15, 0, -7.1054274e-15, 1, 0, 0, 0, 1, 7853.017, 654.156, -71.564)
+mesh = SubResource("ArrayMesh_j3uwe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sewer_placeholder/stelsel/tunnel_corner6" unique_id=965816010]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sewer_placeholder/stelsel/tunnel_corner6/StaticBody3D" unique_id=1693608417]
+shape = SubResource("ConcavePolygonShape3D_l8o0g")
+
+[node name="tunnel_corner4" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="23" unique_id=596041036]
+transform = Transform3D(-4.3711402e-08, 1, 0, -1, -4.3711402e-08, 0, 0, 0, 1, 6615.619, -4633.7354, -71.33627)
+mesh = SubResource("ArrayMesh_j3uwe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sewer_placeholder/stelsel/tunnel_corner4" unique_id=1628304545]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sewer_placeholder/stelsel/tunnel_corner4/StaticBody3D" unique_id=1474628366]
+shape = SubResource("ConcavePolygonShape3D_l8o0g")
+
+[node name="copy_cube14" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="24" unique_id=1988524672]
+visible = false
+
+[node name="tunnel_cross" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="25" unique_id=1217924533]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11450, -8548.035, -71.134186)
 mesh = SubResource("ArrayMesh_julpx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="sewer_placeholder/stelsel/tunnel_cross" unique_id=1224556866]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sewer_placeholder/stelsel/tunnel_cross/StaticBody3D" unique_id=739198684]
+shape = SubResource("ConcavePolygonShape3D_julpx")
+
+[node name="tunnel_cross3" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="26" unique_id=1125839443]
+transform = Transform3D(1, 7.1054274e-15, 0, -7.1054274e-15, 1, 0, 0, 0, 1, 11450.001, -1598.0342, -71.134186)
+mesh = SubResource("ArrayMesh_julpx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sewer_placeholder/stelsel/tunnel_cross3" unique_id=1485668336]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sewer_placeholder/stelsel/tunnel_cross3/StaticBody3D" unique_id=1634538370]
+shape = SubResource("ConcavePolygonShape3D_julpx")
+
+[node name="tunnel_cross2" type="MeshInstance3D" parent="sewer_placeholder/stelsel" parent_id_path=PackedInt32Array(1951818981, 46899572) index="27" unique_id=719223962]
+transform = Transform3D(1, 7.1054274e-15, 0, -7.1054274e-15, 1, 0, 0, 0, 1, 13193.567, -6798.713, -71.134186)
+mesh = SubResource("ArrayMesh_julpx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sewer_placeholder/stelsel/tunnel_cross2" unique_id=1665375439]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sewer_placeholder/stelsel/tunnel_cross2/StaticBody3D" unique_id=1409400839]
 shape = SubResource("ConcavePolygonShape3D_julpx")
 
 [node name="pCube1" parent="sewer_placeholder" index="1" unique_id=763697136]
