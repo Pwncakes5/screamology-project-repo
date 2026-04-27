@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://4dbt38yy64ny" path="res://interactibles/test_door_locked.tscn" id="4_wv5ik"]
 [ext_resource type="PackedScene" uid="uid://3khgjamjldbp" path="res://common/jump_scare_test.tscn" id="5_pq8oq"]
 [ext_resource type="PackedScene" uid="uid://c3dmpo4m4rfrq" path="res://props/test_light.tscn" id="6_h03q2"]
+[ext_resource type="PackedScene" uid="uid://bh8fwuegv73fg" path="res://interactibles/test_dialogue_change.tscn" id="7_ocbyp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y1qy8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -129,5 +130,8 @@ operation = 2
 radius = 4.055176
 height = 40.0
 sides = 12
+
+[node name="TESTDialogueChange" parent="." unique_id=868103722 instance=ExtResource("7_ocbyp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.84131527, 1.4707565, 12.449111)
 
 [editable path="JumpScareTest"]

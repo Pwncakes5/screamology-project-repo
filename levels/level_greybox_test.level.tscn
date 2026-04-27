@@ -2,8 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://kuvpnycyrn05" path="res://player/player.tscn" id="1_r4efh"]
 [ext_resource type="PackedScene" uid="uid://bqmkxjilna44r" path="res://assets/environment/sewer_pieces.tscn" id="2_julpx"]
-[ext_resource type="Theme" uid="uid://c74vybnpmvy4l" path="res://assets/UI/player_hud.tres" id="3_ab6x4"]
-[ext_resource type="Script" uid="uid://5qvqxj6wncev" path="res://player/player_hud.gd" id="4_qnufv"]
+[ext_resource type="PackedScene" uid="uid://bh8fwuegv73fg" path="res://interactibles/test_dialogue_change.tscn" id="5_4ltwx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_julpx"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -249,17 +248,6 @@ shadow_mesh = SubResource("ArrayMesh_b60sg")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ghlcy"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0.5, 0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, -0.5, 0.5, -0.5, 0.5, 0, -0.5, 0.5, 0, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0, 0, 0.5, -0.5, 0, 0.5, -0.5, -0.5, 0.5, 0, -0.5, 0.5, 0, 0, 0.5, 0, 0.5, 0.5, -0.5, 0, 0.5, 0, 0, 0.5, 0, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0, 0.5, 0, -0.5, 0.5, 0.5, 0, 0.5, 0, 0, 0.5, 0.5, 0, 0.5, 0, 0.5, 0.5, 0, 0, 0.5, 0, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0, 0.5, 0.5, 0, 0.5, 0.5, 0.5, 0.5, 0, 0.5, 0.5, 0.5, 0, 0.5, 0.5, -0.5, -0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0.5, 0.5, 0.5, 0, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_julpx"]
-bg_color = Color(0.11489678, 0.11489683, 0.11489671, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
 
 [node name="LevelGreyboxTest" type="Node3D" unique_id=943103115]
 
@@ -547,66 +535,7 @@ mesh = SubResource("ArrayMesh_oirh4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sewer_placeholder/room_small/StaticBody3D" unique_id=400742343]
 shape = SubResource("ConcavePolygonShape3D_ghlcy")
 
-[node name="PlayerHUD" type="Control" parent="." unique_id=1710930480]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-theme = ExtResource("3_ab6x4")
-script = ExtResource("4_qnufv")
-
-[node name="StaminaBar" type="ProgressBar" parent="PlayerHUD" unique_id=1395868272]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 48.0
-offset_top = -282.0
-offset_right = 70.0
-offset_bottom = -64.0
-grow_vertical = 0
-value = 91.56
-fill_mode = 3
-show_percentage = false
-
-[node name="CurrentTaskLabel" type="RichTextLabel" parent="PlayerHUD" unique_id=328170949]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -290.0
-offset_top = 20.0
-offset_right = -18.0
-offset_bottom = 140.0
-grow_horizontal = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_julpx")
-bbcode_enabled = true
-text = "TEXT GOES HERE"
-autowrap_mode = 2
-
-[node name="DialogueLabel" type="RichTextLabel" parent="PlayerHUD" unique_id=1761270372]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -252.0
-offset_top = -152.0
-offset_right = 252.0
-offset_bottom = -32.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_julpx")
-bbcode_enabled = true
-text = "TEXT GOES HERE"
-autowrap_mode = 2
-visible_characters_behavior = 1
+[node name="Area3D" parent="." unique_id=868103722 instance=ExtResource("5_4ltwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.621666, 0.6000004, -74.727905)
 
 [editable path="sewer_placeholder"]
