@@ -8,7 +8,7 @@ class_name PlayerHUD extends Control
 var _tween_text : Tween = null
 
 func _ready() -> void:
-	show_dialogue_text(preload("uid://m1y8gtebwv1r"), 3.0)
+	_dialogue_label.visible = false
 
 
 func show_dialogue_text(dialogue_item: DialogueItem, duration: float) -> void:
@@ -19,10 +19,16 @@ func show_dialogue_text(dialogue_item: DialogueItem, duration: float) -> void:
 		return
 	
 	_tween_text = create_tween()
+	_dialogue_label.visible = true
 	_dialogue_label.text = dialogue_item.text
 	_dialogue_label.visible_ratio = 0.0
 	
 	_tween_text.tween_property(_dialogue_label, "visible_ratio", 1.0, duration)
+	_tween_text.finished.connect(
+		func() -> void:
+			await get_tree().create_timer(1.0).timeout
+			_dialogue_label.visible = false
+	)
 
 
 func show_task_text(dialogue_item: DialogueItem, duration: float) -> void:
