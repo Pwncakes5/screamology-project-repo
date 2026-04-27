@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bh8fwuegv73fg"]
+
+[ext_resource type="Script" uid="uid://cof6u4dj5ctag" path="res://interactibles/test_dialogue_change.gd" id="1_t72bw"]
+[ext_resource type="Resource" uid="uid://m1y8gtebwv1r" path="res://dialogue_items/test_dialogue.tres" id="2_umh6l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_umh6l"]
+
+[node name="TESTDialogueChange" type="Area3D" unique_id=868103722]
+script = ExtResource("1_t72bw")
+dialogue_item = ExtResource("2_umh6l")
+prompt = "Interact to Change Dialogue"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1610411800]
+shape = SubResource("BoxShape3D_umh6l")
+debug_color = Color(0.9645794, 7.70092e-07, 0.48899966, 1)

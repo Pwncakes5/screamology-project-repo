@@ -1,9 +1,6 @@
 extends Interactable3D
 class_name Test_Key
 
-# I can't figure out signals :(
-#signal picked_up(argument_1: String)
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,7 +8,3 @@ func _ready() -> void:
 func interact():
 	super()
 	queue_free()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
