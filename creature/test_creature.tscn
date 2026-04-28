@@ -57,3 +57,5 @@ debug_color = Color(0, 1, 0, 1)
 
 [node name="HeadMarker" type="Marker3D" parent="." unique_id=1705934245]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8171239, 0.9235599)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=266184244]

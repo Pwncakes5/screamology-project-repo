@@ -14,6 +14,7 @@ enum State {
 	StateWander,
 	StateChase,
 	StateIdle,
+	StateScare,
 }
 
 var current_state : State = State.StateWander:
@@ -71,6 +72,9 @@ func set_current_state(new_state: State) -> void:
 		State.StateLookAtPlayer: 
 			#print("Now exiting State: ", State.StateLookAtPlayer)
 			_stare_timer.stop()
+		
+		State.StateScare:
+			pass
 	
 	## Runs entering code based on new State
 	match current_state:
@@ -94,6 +98,9 @@ func set_current_state(new_state: State) -> void:
 			_stare_timer.start()
 			
 			velocity = Vector3.ZERO
+		
+		State.StateScare:
+			pass
 
 #endregion
 
