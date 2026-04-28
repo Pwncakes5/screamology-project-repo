@@ -39,7 +39,7 @@ environment = SubResource("Environment_kqan6")
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=648275777]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -18.07837)
 use_collision = true
-size = Vector3(30, 1, 66.15674)
+size = Vector3(100, 1, 100)
 
 [node name="Player" parent="." unique_id=1496450164 instance=ExtResource("1_4kkmv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 10)
